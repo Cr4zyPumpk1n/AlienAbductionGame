@@ -5,20 +5,25 @@ using System.Collections.Generic;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // The players starting health
-    public float startingHealth = 100f;
+    // Reference to the player's movement Script
+    MovementController playerMovement;
 
-    // The players current health
+
+    // The players starting and current health
+    public float startingHealth = 100f;
     public float currentHealth;
 
-    // Reference to the player's movement.
-    MovementController playerMovement;
-    
+    // Reference to health slider
+    public Slider healthSlider;
+    // Reference to image to flash if player is injured
+    public Image damageImage;
+    public float fadeSpeed = 5f;
+    public Color flashColor = new Color(1f, 0f, 0f, 0.1f);
 
-    // Check if the player is dead.
-    bool isDead;                   
     // True, when the player gets damaged.
     bool damaged;                                               
+    // Check if the player is dead.
+    bool isDead;                   
 
 
     void Awake()
@@ -34,7 +39,16 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        
+        // If player has been damaged, flashh image
+        if (damaged)
+        {
+            damageImage.color = flashColor; 
+        }
+        // set color to clear
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, fadeSpeed * Time.deltaTime);
+        }
     }
 
 
@@ -45,6 +59,9 @@ public class PlayerHealth : MonoBehaviour
 
         // Reduce the current health by the damage amount.
         currentHealth -= amount;
+
+        // Set the health bar's value to thhe current health
+        healthSlider.value = currentHealth; 
 
         // If the player's health is 0 and death hasn't been set yet, it will die
         if (currentHealth <= 0 && !isDead)

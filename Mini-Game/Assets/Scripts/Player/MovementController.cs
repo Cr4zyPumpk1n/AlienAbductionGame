@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour
 {
     // Reference to the player
     public Rigidbody player;
+    
 
     // movement speed
     public float moveSpeed = 1f;
@@ -59,22 +60,11 @@ public class MovementController : MonoBehaviour
     {
         moveSpeed = 0.1f; 
 
-        // if shift is pressed, character runs, when released again, it returns to the normal speed of 0.1f; // Needs some ajusting!
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            moveSpeed = 1f;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            moveSpeed = 0.1f;
-        }
-       
-
         // move forward
         if (Input.GetKey(KeyCode.W))
         {
             player.position += Vector3.forward * moveSpeed;
+            
         }
 
         // move backward

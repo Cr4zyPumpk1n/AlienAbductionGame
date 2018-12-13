@@ -3,12 +3,20 @@ using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController: MonoBehaviour
 {
-    // Reference to the player's position.
-    public Transform player;
     // Reference to the nav mesh agent.
     public NavMeshAgent nav;
+
+    // Reference to the player's position.
+    Transform player;
+
+    bool damaged = false;
+
+    // Enemy stats
+    public float enemyHealth = 100f;
+    public float enemyAttackDamage;
+    public float enemyAttackRange;
 
     void Awake()
     {
@@ -22,4 +30,6 @@ public class EnemyMovement : MonoBehaviour
     {
         nav.SetDestination(player.position);
     }
+
+   
 }

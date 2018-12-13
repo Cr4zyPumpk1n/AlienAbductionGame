@@ -20,7 +20,16 @@ public class CharacterAnimator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        float speedPercent = agent.velocity.magnitude / agent.speed;
-        animator.SetFloat("speedPercent", speedPercent, smoothTime, Time.deltaTime);
+        //float speedPercent = agent.velocity.magnitude / agent.speed;
+        //animator.SetFloat("speedPercent", speedPercent, smoothTime, Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
 	}
 }

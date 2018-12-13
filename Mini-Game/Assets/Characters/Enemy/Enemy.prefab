@@ -159,6 +159,8 @@ GameObject:
   - component: {fileID: 54381838554883100}
   - component: {fileID: 195169543689864668}
   - component: {fileID: 114969698529283650}
+  - component: {fileID: 114991789291906054}
+  - component: {fileID: 114703736854949560}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Zombie
@@ -909,7 +911,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289306270615170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.514051, y: -1.1626892e-17, z: 2.0945146}
+  m_LocalPosition: {x: 3.3812962, y: -8.1416007e-19, z: 0.14666604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4902239131466640}
@@ -1019,6 +1021,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114703736854949560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289306270615170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a950c80ca0fa4a4a92ca934917391f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  scoreValue: 10
 --- !u!114 &114969698529283650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1030,8 +1046,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f8800e6a28e67408dde5b1142ec36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   nav: {fileID: 195169543689864668}
+  enemyHealth: 100
+  enemyAttackDamage: 10
+  enemyAttackRange: 0
+--- !u!114 &114991789291906054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289306270615170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a5b923bd9dd6542b6e76e3919297ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attackDamage: 10
+  enemy: {fileID: 1289306270615170}
 --- !u!137 &137195339153251832
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
