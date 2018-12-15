@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
-    public float bulletSpeed; 
+    public float bulletSpeed;
+    
+    // Use this for initialization
+    void Start ()
+    {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
     }
 }

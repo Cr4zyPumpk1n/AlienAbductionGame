@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     // Reference to health slider
     public Slider healthSlider;
+
     // Reference to image to flash if player is injured
     public Image damageImage;
     public float fadeSpeed = 5f;
@@ -42,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
         // If player has been damaged, flashh image
         if (damaged)
         {
-            damageImage.color = flashColor; 
+            damageImage.color = flashColor * Time.deltaTime; 
         }
         // set color to clear
         else
@@ -80,5 +82,8 @@ public class PlayerHealth : MonoBehaviour
 
         // Turn off the movement script
         playerMovement.enabled = false;
+
+        SceneManager.LoadScene(2);
+
     }
 }
