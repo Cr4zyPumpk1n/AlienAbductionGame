@@ -5,7 +5,11 @@ using UnityEngine;
 public class BulletController : MonoBehaviour {
 
     public float bulletSpeed;
-    
+
+    public float despawnTime = 20f;
+
+    public float timer; 
+
     // Use this for initialization
     void Start ()
     {
@@ -15,6 +19,12 @@ public class BulletController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
+        timer += Time.deltaTime;
+        //transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
+
+        if (timer > despawnTime)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

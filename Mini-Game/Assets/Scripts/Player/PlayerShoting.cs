@@ -55,7 +55,7 @@ public class PlayerShoting : MonoBehaviour
     
     void Shoot()
     {
-        var bullet = Instantiate(gunParticles, projectileSpawnPoint.transform.position, rotation);
+        GameObject bullet = GameObject.Instantiate(gunParticles, transform.position, rotation);
         
         // Reset the timer.
         timer = 0f;
