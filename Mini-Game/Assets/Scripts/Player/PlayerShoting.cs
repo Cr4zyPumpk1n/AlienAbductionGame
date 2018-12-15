@@ -45,8 +45,8 @@ public class PlayerShoting : MonoBehaviour
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
-        // If the left mouse button or ctrl-left button is being pressed, fire
-        if (Input.GetButton("Fire1")&& timer >= timeBetweenBullets)
+        // If the left mouse button is being pressed, fire
+        if (Input.GetMouseButton(0) && timer >= timeBetweenBullets)
         {
             Shoot();
             //Debug.Log("Fire1 was pressed");

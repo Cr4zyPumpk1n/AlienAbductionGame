@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class MovementController : MonoBehaviour
     {
         Move();
         RotatePlayer();
+        Interact();
     }
 
     void RotatePlayer()
@@ -85,6 +87,25 @@ public class MovementController : MonoBehaviour
             player.position += Vector3.right * moveSpeed;
         }
 
+    }
+
+    void Interact()
+    {
+        // If right mous button is pressed, cast ray, detect interacables and interact
+        if (Input.GetMouseButton(1))
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Interacable interacable = hit.collider.GetComponent<Interacable>();
+                if (interacable != null)
+                {
+                    SceneManager.LoadScene(3);
+                }
+            }
+        }
     }
 
 
