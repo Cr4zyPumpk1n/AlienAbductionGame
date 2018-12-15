@@ -60,10 +60,11 @@ public class PlayerShoting : MonoBehaviour
         // Reset the timer.
         timer = 0f;
 
+
         // Set the shootRay so that it starts at the end of the gun and points forward from the barrel.
         shootRay.origin = projectileSpawnPoint.transform.position;
         shootRay.direction = projectileSpawnPoint.transform.forward;
-
+        
         // Perform the raycast against gameobjects on the shootable layer and if it hits something...
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
