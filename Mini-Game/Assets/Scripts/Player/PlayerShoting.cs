@@ -76,10 +76,5 @@ public class PlayerShoting : MonoBehaviour
                 enemyHealth.TakeDamage(damagePerShot, shootHit.point);
             }
         }
-        // If the raycast didn't hit anything on the shootable layer, just shoot
-        else
-        {
-            Instantiate(gunParticles);
-        }
     }
 }
