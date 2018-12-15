@@ -7,7 +7,7 @@ public class PlayerShoting : MonoBehaviour
    
     // damage inflicted per bullet
     public int damagePerShot = 20;
-
+    public float bulletSpeed;
     // The time between each shot.
     public float timeBetweenBullets = 0.15f;        
         
